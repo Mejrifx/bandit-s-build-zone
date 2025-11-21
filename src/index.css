@@ -123,4 +123,15 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* GSAP entrance animation initial states - prevent flash */
+  .hero-heading {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .hero-buttons button {
+    opacity: 0;
+    transform: scale(0.96);
+  }
 }

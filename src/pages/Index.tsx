@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import bgDesktop from "@/assets/bg-desktop.jpg";
 import bgMobile from "@/assets/bg-mobile.jpg";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import CartoonButton from "@/components/CartoonButton";
 import FallingLeaves from "@/components/FallingLeaves";
 import gsap from "gsap";
 
 const Index = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -23,44 +21,35 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    // GSAP entrance animation
-    const timeline = gsap.timeline();
-    
-    // Animate heading: slide up from 30px below and fade in
-    timeline.fromTo(
-      ".hero-heading",
-      {
-        opacity: 0,
-        y: 30,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      }
-    );
+    // Wait for next paint to prevent flash
+    requestAnimationFrame(() => {
+      const timeline = gsap.timeline();
+      
+      // Animate heading: slide up from 30px below and fade in
+      timeline.from(
+        ".hero-heading",
+        {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
 
-    // Animate buttons: fade in with scale-up and stagger
-    timeline.fromTo(
-      ".hero-buttons button",
-      {
-        opacity: 0,
-        scale: 0.96,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.15,
-      },
-      "-=0.4" // Start slightly before heading finishes
-    );
-
-    return () => {
-      timeline.kill();
-    };
+      // Animate buttons: fade in with scale-up and stagger
+      timeline.from(
+        ".hero-buttons button",
+        {
+          opacity: 0,
+          y: 10,
+          scale: 0.96,
+          stagger: 0.15,
+          duration: 0.7,
+          ease: "power3.out",
+        },
+        "-=0.5" // Start slightly before heading finishes
+      );
+    });
   }, []);
 
   return (
@@ -83,7 +72,6 @@ const Index = () => {
           {/* Animated Heading */}
           <div className="mb-16 relative">
             <motion.h1
-              ref={headingRef}
               animate={{
                 rotate: [-1, 1, -1],
               }}
@@ -108,10 +96,7 @@ const Index = () => {
           </div>
 
           {/* Buttons Container */}
-          <div
-            ref={buttonsRef}
-            className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center"
-          >
+          <div className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
             {/* Join Community Button */}
             <CartoonButton 
                 href="https://t.me/banditabstract" 
