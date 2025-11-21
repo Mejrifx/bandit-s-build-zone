@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import bgDesktop from "@/assets/bg-desktop.jpg";
 import bgMobile from "@/assets/bg-mobile.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CartoonButton from "@/components/CartoonButton";
 import FallingLeaves from "@/components/FallingLeaves";
+import gsap from "gsap";
 
 const Index = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const buttonsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -17,6 +20,47 @@ const Index = () => {
     window.addEventListener("resize", checkMobile);
     
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // GSAP entrance animation
+    const timeline = gsap.timeline();
+    
+    // Animate heading: slide up from 30px below and fade in
+    timeline.fromTo(
+      ".hero-heading",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+      }
+    );
+
+    // Animate buttons: fade in with scale-up and stagger
+    timeline.fromTo(
+      ".hero-buttons button",
+      {
+        opacity: 0,
+        scale: 0.96,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.15,
+      },
+      "-=0.4" // Start slightly before heading finishes
+    );
+
+    return () => {
+      timeline.kill();
+    };
   }, []);
 
   return (
@@ -37,13 +81,9 @@ const Index = () => {
         <div className="w-full max-w-3xl text-center">
           
           {/* Animated Heading */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
-            className="mb-16 relative"
-          >
-             <motion.h1
+          <div className="mb-16 relative">
+            <motion.h1
+              ref={headingRef}
               animate={{
                 rotate: [-1, 1, -1],
               }}
@@ -52,7 +92,7 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
+              className="hero-heading text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
               style={{
                 textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
                 WebkitTextStroke: "3px hsl(var(--primary))",
@@ -65,14 +105,12 @@ const Index = () => {
               <br />
               PROGRESS…
             </motion.h1>
-          </motion.div>
+          </div>
 
           {/* Buttons Container */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, type: "spring", bounce: 0.4 }}
-            className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center"
+          <div
+            ref={buttonsRef}
+            className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center"
           >
             {/* Join Community Button */}
             <CartoonButton 
@@ -93,7 +131,7 @@ const Index = () => {
             >
               Buy $BANDIT
             </CartoonButton>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>
