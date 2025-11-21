@@ -4,6 +4,7 @@ import bgMobile from "@/assets/bg-mobile.jpg";
 import { useEffect, useState } from "react";
 import CartoonButton from "@/components/CartoonButton";
 import FallingLeaves from "@/components/FallingLeaves";
+import SocialIcons from "@/components/SocialIcons";
 import gsap from "gsap";
 
 const Index = () => {
@@ -36,6 +37,20 @@ const Index = () => {
         }
       );
 
+      // Animate social icons: fade in with scale-up and stagger
+      timeline.to(
+        ".hero-social-icons a",
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          stagger: 0.15,
+          duration: 1.4,
+          ease: "power3.out",
+        },
+        "-=1.8" // Start before heading finishes
+      );
+
       // Animate buttons: fade in with scale-up and stagger
       timeline.to(
         ".hero-buttons a",
@@ -66,7 +81,10 @@ const Index = () => {
       <FallingLeaves />
       
       {/* Content Overlay */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 sm:pt-0">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 sm:pt-0">
+        {/* Social Icons - Mobile Only */}
+        <SocialIcons />
+        
         <div className="w-full max-w-3xl text-center">
           
           {/* Animated Heading */}
@@ -99,7 +117,7 @@ const Index = () => {
           <div className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
             {/* Join Community Button */}
             <CartoonButton 
-                href="https://t.me/banditabstract" 
+                href="https://t.me/banditabs" 
                 target="_blank" 
                 variant="primary"
                 className="w-auto max-w-[280px] sm:max-w-none sm:w-auto"
