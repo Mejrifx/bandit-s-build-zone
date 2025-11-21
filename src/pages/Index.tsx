@@ -45,20 +45,20 @@ const Index = () => {
           >
              <motion.h1
               animate={{
-                rotate: [-2, 2, -2],
-                scale: [1, 1.02, 1],
+                rotate: [-1, 1, -1],
               }}
               transition={{
-                duration: 5,
+                duration: 6,
                 repeat: Infinity,
                 ease: "easeInOut",
-                times: [0, 0.5, 1]
               }}
-              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl"
+              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
               style={{
                 textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
                 WebkitTextStroke: "3px hsl(var(--primary))",
                 paintOrder: "stroke fill",
+                backfaceVisibility: "hidden",
+                transform: "translateZ(0)",
               }}
             >
               BUILDING IN
