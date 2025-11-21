@@ -26,23 +26,23 @@ const Index = () => {
       const timeline = gsap.timeline();
       
       // Animate heading: slide up from 30px below and fade in
-      timeline.from(
+      timeline.to(
         ".hero-heading",
         {
-          opacity: 0,
-          y: 30,
+          opacity: 1,
+          y: 0,
           duration: 0.8,
           ease: "power3.out",
         }
       );
 
       // Animate buttons: fade in with scale-up and stagger
-      timeline.from(
+      timeline.to(
         ".hero-buttons a",
         {
-          opacity: 0,
-          y: 10,
-          scale: 0.96,
+          opacity: 1,
+          y: 0,
+          scale: 1,
           stagger: 0.15,
           duration: 0.7,
           ease: "power3.out",
