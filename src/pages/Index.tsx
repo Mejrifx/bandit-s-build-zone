@@ -38,7 +38,7 @@ const Index = () => {
 
       // Animate buttons: fade in with scale-up and stagger
       timeline.from(
-        ".hero-buttons button",
+        ".hero-buttons a",
         {
           opacity: 0,
           y: 10,
