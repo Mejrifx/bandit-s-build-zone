@@ -33,7 +33,7 @@ const Index = () => {
       <FallingLeaves />
       
       {/* Content Overlay */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 sm:pt-0">
         <div className="w-full max-w-3xl text-center">
           
           {/* Animated Heading */}
