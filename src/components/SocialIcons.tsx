@@ -35,9 +35,9 @@ const SocialIcons = () => {
         className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-200"
         aria-label="DexScreener"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white">
-          <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="currentColor" strokeWidth="2" fill="none"/>
-          <path d="M12 12l-5-2.5v5L12 17l5-2.5v-5L12 12z" fill="currentColor"/>
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
+          <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.2l8.5 4.25v8.1L12 20.8l-8.5-4.25v-8.1L12 4.2z"/>
+          <path d="M12 12l-4-2v4l4 2 4-2v-4l-4 2z" fill="white"/>
         </svg>
       </a>
 
@@ -50,7 +50,7 @@ const SocialIcons = () => {
         aria-label="CoinGecko"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-white">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.4c5.302 0 9.6 4.298 9.6 9.6S17.302 21.6 12 21.6 2.4 17.302 2.4 12 6.698 2.4 12 2.4zm-1.2 3.6v8.4h2.4V6h-2.4zm4.8 0v8.4h2.4V6h-2.4z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 1.5c5.799 0 10.5 4.701 10.5 10.5S17.799 22.5 12 22.5 1.5 17.799 1.5 12 6.201 1.5 12 1.5zm-2.25 4.5v9h1.5V6h-1.5zm4.5 0v9h1.5V6h-1.5z"/>
         </svg>
       </a>
     </div>
