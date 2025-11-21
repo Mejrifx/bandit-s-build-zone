@@ -102,7 +102,7 @@ const Index = () => {
                 href="https://t.me/banditabstract" 
                 target="_blank" 
                 variant="primary"
-                className="w-full sm:w-auto"
+                className="w-auto max-w-[280px] sm:max-w-none sm:w-auto"
             >
               Join Community
             </CartoonButton>
@@ -112,7 +112,7 @@ const Index = () => {
                 href="https://portal.abs.xyz/trade?buy=0x775fec18be7b2e71c1a20c22f89a697d07c04399&showBars=true&showHistory=true" 
                 target="_blank"
                 variant="secondary"
-                className="w-full sm:w-auto"
+                className="w-auto max-w-[280px] sm:max-w-none sm:w-auto"
             >
               Buy $BANDIT
             </CartoonButton>
