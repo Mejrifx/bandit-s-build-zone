@@ -25,12 +25,9 @@ const Index = () => {
     requestAnimationFrame(() => {
       const timeline = gsap.timeline();
       
-      // Set heading to start much lower (below buttons area)
-      gsap.set(".hero-heading", { y: 150 });
-      
-      // Animate heading: slide up from below like it's behind the buttons
+      // Animate heading wrapper: slide up from below like it's behind the buttons
       timeline.to(
-        ".hero-heading",
+        ".hero-heading-wrapper",
         {
           opacity: 1,
           y: 0,
@@ -73,7 +70,7 @@ const Index = () => {
         <div className="w-full max-w-3xl text-center">
           
           {/* Animated Heading */}
-          <div className="mb-16 relative">
+          <div className="hero-heading-wrapper mb-16 relative">
             <motion.h1
               animate={{
                 rotate: [-1, 1, -1],
@@ -83,7 +80,7 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="hero-heading text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
+              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
               style={{
                 textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
                 WebkitTextStroke: "3px hsl(var(--primary))",

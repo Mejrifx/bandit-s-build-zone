@@ -125,7 +125,7 @@ All colors MUST be HSL.
   }
   
   /* GSAP entrance animation initial states - prevent flash */
-  .hero-heading {
+  .hero-heading-wrapper {
     opacity: 0;
     transform: translateY(150px);
   }
