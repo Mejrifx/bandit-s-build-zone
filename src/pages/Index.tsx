@@ -49,9 +49,10 @@ const Index = () => {
                 scale: [1, 1.02, 1],
               }}
               transition={{
-                duration: 4,
+                duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
+                times: [0, 0.5, 1]
               }}
               className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl"
               style={{
@@ -64,26 +65,6 @@ const Index = () => {
               <br />
               PROGRESS…
             </motion.h1>
-            
-            {/* Decorative sparkle/elements */}
-            <motion.div 
-                animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-12 h-12 text-yellow-300"
-            >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                </svg>
-            </motion.div>
-            <motion.div 
-                animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.2, 1] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-                className="absolute -bottom-4 -left-4 w-8 h-8 text-cartoon-mint"
-            >
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
-                </svg>
-            </motion.div>
           </motion.div>
 
           {/* Buttons Container */}
