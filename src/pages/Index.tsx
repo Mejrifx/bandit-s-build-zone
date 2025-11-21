@@ -25,13 +25,16 @@ const Index = () => {
     requestAnimationFrame(() => {
       const timeline = gsap.timeline();
       
-      // Animate heading: slide up from 30px below and fade in
+      // Set heading to start much lower (below buttons area)
+      gsap.set(".hero-heading", { y: 150 });
+      
+      // Animate heading: slide up from below like it's behind the buttons
       timeline.to(
         ".hero-heading",
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 1,
           ease: "power3.out",
         }
       );
@@ -47,7 +50,7 @@ const Index = () => {
           duration: 0.7,
           ease: "power3.out",
         },
-        "-=0.5" // Start slightly before heading finishes
+        "-=0.6" // Start slightly before heading finishes
       );
     });
   }, []);
