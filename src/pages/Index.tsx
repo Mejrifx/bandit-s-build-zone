@@ -48,7 +48,7 @@ const Index = () => {
                 rotate: [-1, 1, -1],
               }}
               transition={{
-                duration: 6,
+                duration: 3,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
