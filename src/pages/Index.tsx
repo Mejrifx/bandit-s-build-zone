@@ -31,7 +31,7 @@ const Index = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 2,
           ease: "power3.out",
         }
       );
@@ -43,11 +43,11 @@ const Index = () => {
           opacity: 1,
           y: 0,
           scale: 1,
-          stagger: 0.15,
-          duration: 0.7,
+          stagger: 0.3,
+          duration: 1.4,
           ease: "power3.out",
         },
-        "-=0.6" // Start slightly before heading finishes
+        "-=1.2" // Start slightly before heading finishes
       );
     });
   }, []);

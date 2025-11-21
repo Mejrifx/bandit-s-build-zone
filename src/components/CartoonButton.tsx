@@ -24,7 +24,7 @@ const CartoonButton = ({
       }}
       whileTap={{ scale: 0.95, y: 0 }}
       className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl px-5 py-2.5 sm:px-8 sm:py-4 text-base sm:text-xl font-black tracking-wide text-white shadow-[0_4px_0_0_rgba(0,0,0,0.2)] sm:shadow-[0_8px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 sm:active:translate-y-2",
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl px-7 py-3.5 sm:px-8 sm:py-4 text-lg sm:text-xl font-black tracking-wide text-white shadow-[0_4px_0_0_rgba(0,0,0,0.2)] sm:shadow-[0_8px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 sm:active:translate-y-2",
         isPrimary 
           ? "bg-gradient-to-b from-cartoon-pink to-primary hover:from-primary hover:to-cartoon-pink" 
           : "bg-gradient-to-b from-cartoon-mint to-secondary hover:from-secondary hover:to-cartoon-mint",
