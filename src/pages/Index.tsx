@@ -98,7 +98,7 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="text-5xl font-black tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
+              className="font-bubble text-5xl font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
               style={{
                 textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
                 WebkitTextStroke: "3px hsl(var(--primary))",

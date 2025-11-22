@@ -135,6 +135,7 @@ export default {
       fontFamily: {
         'display': ['Poppins', 'system-ui', 'sans-serif'],
         'body': ['Inter', 'system-ui', 'sans-serif'],
+        'bubble': ['Fredoka One', 'cursive', 'system-ui', 'sans-serif'],
       },
     },
   },
