@@ -116,7 +116,7 @@ const Index = () => {
           </div>
 
           {/* Buttons Container */}
-          <div className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+          <div className="hero-buttons flex flex-col items-center gap-6 sm:flex-row sm:justify-center" style={{ transform: "translateY(-40px)" }}>
             {/* Join Community Button */}
             <CartoonButton 
                 href="https://t.me/banditabs" 
