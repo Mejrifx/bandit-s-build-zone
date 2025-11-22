@@ -88,7 +88,7 @@ const Index = () => {
         <div className="w-full max-w-3xl text-center">
           
           {/* Animated Heading */}
-          <div className="hero-heading-wrapper mb-16 relative">
+          <div className="hero-heading-wrapper mb-16 relative flex justify-center">
             <motion.div
               animate={{
                 rotate: [-1, 1, -1],
@@ -98,7 +98,7 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="will-change-transform"
+              className="will-change-transform flex justify-center"
               style={{
                 backfaceVisibility: "hidden",
                 transform: "translateZ(0)",
@@ -107,7 +107,7 @@ const Index = () => {
               <img
                 src="/building-in-progress-bandit.png"
                 alt="Building In Progress"
-                className="w-full max-w-[70vw] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+                className="w-full max-w-[70vw] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] mx-auto"
                 style={{
                   filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
                 }}
