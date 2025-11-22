@@ -107,7 +107,7 @@ const Index = () => {
               <img
                 src="/building-in-progress-bandit.png"
                 alt="Building In Progress"
-                className="w-full max-w-[90vw] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+                className="w-full max-w-[70vw] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
                 style={{
                   filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
                 }}
