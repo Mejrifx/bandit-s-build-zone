@@ -89,7 +89,7 @@ const Index = () => {
           
           {/* Animated Heading */}
           <div className="hero-heading-wrapper mb-16 relative">
-            <motion.h1
+            <motion.div
               animate={{
                 rotate: [-1, 1, -1],
               }}
@@ -98,21 +98,21 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="font-bubble text-5xl font-normal tracking-wider sm:text-6xl md:text-7xl lg:text-8xl text-white will-change-transform"
+              className="will-change-transform"
               style={{
-                textShadow: "8px 8px 0px rgba(0,0,0,0.3), 4px 4px 0px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.1)",
-                WebkitTextStroke: "4px hsl(var(--primary))",
-                paintOrder: "stroke fill",
                 backfaceVisibility: "hidden",
                 transform: "translateZ(0)",
-                letterSpacing: "0.05em",
-                filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
               }}
             >
-              BUILDING IN
-              <br />
-              PROGRESS…
-            </motion.h1>
+              <img
+                src="/building-in-progress-bandit.png"
+                alt="Building In Progress"
+                className="w-full max-w-[90vw] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[800px] h-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]"
+                style={{
+                  filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
+                }}
+              />
+            </motion.div>
           </div>
 
           {/* Buttons Container */}
