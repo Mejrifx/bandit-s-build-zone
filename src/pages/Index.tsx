@@ -98,13 +98,15 @@ const Index = () => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="font-bubble text-5xl font-normal tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-xl will-change-transform"
+              className="font-bubble text-5xl font-normal tracking-wider sm:text-6xl md:text-7xl lg:text-8xl text-white will-change-transform"
               style={{
-                textShadow: "6px 6px 0px rgba(0,0,0,0.2)",
-                WebkitTextStroke: "3px hsl(var(--primary))",
+                textShadow: "8px 8px 0px rgba(0,0,0,0.3), 4px 4px 0px rgba(0,0,0,0.2), 0 0 20px rgba(255,255,255,0.1)",
+                WebkitTextStroke: "4px hsl(var(--primary))",
                 paintOrder: "stroke fill",
                 backfaceVisibility: "hidden",
                 transform: "translateZ(0)",
+                letterSpacing: "0.05em",
+                filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.4))",
               }}
             >
               BUILDING IN
