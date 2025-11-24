@@ -1,37 +1,41 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const LeafSVG = ({ color, rotate }: { color: string; rotate: number }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill={color}
-    className="w-full h-full"
-    style={{ transform: `rotate(${rotate}deg)` }}
-  >
-    <path d="M12,2 C12,2 4,8 4,14 C4,19 8,22 12,22 C16,22 20,19 20,14 C20,8 12,2 12,2 Z M12,22 C12,22 12,14 12,14" opacity="0.8" />
-  </svg>
-);
-
-const Leaf = ({ delay }: { delay: number }) => {
-  const colors = ["#FFB7B2", "#FFDAC1", "#E2F0CB", "#B5EAD7", "#C7CEEA"];
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+const Petal = ({ delay }: { delay: number }) => {
   const randomX = Math.random() * 100; // percentage
-  const randomSize = 20 + Math.random() * 30;
-  const duration = 15 + Math.random() * 10;
+  const randomSize = 30 + Math.random() * 40; // 30-70px
+  const duration = 8 + Math.random() * 12; // 8-20 seconds for natural fall
+  const initialRotation = Math.random() * 360;
+  const swayAmount = 20 + Math.random() * 30; // Horizontal sway like leaves
   
   return (
     <motion.div
-      initial={{ y: -100, x: `${randomX}vw`, opacity: 0, rotate: 0 }}
+      initial={{ 
+        y: -100, 
+        x: `${randomX}vw`, 
+        opacity: 0, 
+        rotate: initialRotation 
+      }}
       animate={{
         y: "110vh",
-        x: [`${randomX}vw`, `${randomX + (Math.random() * 10 - 5)}vw`, `${randomX}vw`],
-        opacity: [0, 1, 1, 0],
-        rotate: [0, 360],
+        x: [
+          `${randomX}vw`, 
+          `${randomX + (Math.random() * swayAmount - swayAmount/2)}vw`, 
+          `${randomX + (Math.random() * swayAmount - swayAmount/2)}vw`,
+          `${randomX}vw`
+        ],
+        opacity: [0, 0.8, 0.8, 0],
+        rotate: [
+          initialRotation, 
+          initialRotation + 180 + (Math.random() * 180),
+          initialRotation + 360 + (Math.random() * 180),
+          initialRotation + 540
+        ],
       }}
       transition={{
         duration: duration,
         delay: delay,
-        ease: "linear",
+        ease: [0.4, 0, 0.6, 1], // Custom easing for natural leaf fall
         repeat: Infinity,
       }}
       className="absolute top-0 pointer-events-none z-0"
@@ -40,27 +44,33 @@ const Leaf = ({ delay }: { delay: number }) => {
         height: randomSize,
       }}
     >
-      <LeafSVG color={randomColor} rotate={Math.random() * 360} />
+      <img
+        src="/bandit-petal.png"
+        alt=""
+        className="w-full h-full object-contain"
+        style={{
+          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
+        }}
+      />
     </motion.div>
   );
 };
 
 const FallingLeaves = () => {
-  const [leaves, setLeaves] = useState<number[]>([]);
+  const [petals, setPetals] = useState<number[]>([]);
 
   useEffect(() => {
-    // Create an array of indices for leaves
-    setLeaves(Array.from({ length: 20 }, (_, i) => i));
+    // Create more petals for a richer effect (like leaves falling from a tree)
+    setPetals(Array.from({ length: 30 }, (_, i) => i));
   }, []);
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      {leaves.map((i) => (
-        <Leaf key={i} delay={i * 2} />
+      {petals.map((i) => (
+        <Petal key={i} delay={i * 0.8} />
       ))}
     </div>
   );
 };
 
 export default FallingLeaves;
-
