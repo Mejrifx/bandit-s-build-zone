@@ -36,49 +36,97 @@ const SocialIcons = () => {
   ];
 
   return (
-    <div className="hero-social-icons flex items-center justify-center gap-4 sm:hidden pt-6 pb-4">
-      {socialLinks.map((link, index) => {
-        const variant = iconVariants[link.variant];
-        return (
-          <motion.a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{
-              scale: 1.05,
-              rotate: variant.rotate,
-              y: -5,
-            }}
-            whileTap={{ scale: 0.95, y: 0 }}
-            className={`w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-b ${variant.gradient} shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 relative overflow-hidden group`}
-            aria-label={link.label}
-          >
-            <span className="relative z-10">
-              <img
-                src={link.image}
-                alt={link.label}
-                className="w-6 h-6 object-contain"
-                style={{
-                  filter: "drop-shadow(1px 1px 0 rgba(0,0,0,0.2))",
-                }}
+    <>
+      {/* Mobile - Centered at top */}
+      <div className="hero-social-icons flex items-center justify-center gap-4 sm:hidden pt-6 pb-4">
+        {socialLinks.map((link, index) => {
+          const variant = iconVariants[link.variant];
+          return (
+            <motion.a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1.05,
+                rotate: variant.rotate,
+                y: -5,
+              }}
+              whileTap={{ scale: 0.95, y: 0 }}
+              className={`w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-b ${variant.gradient} shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 relative overflow-hidden group`}
+              aria-label={link.label}
+            >
+              <span className="relative z-10">
+                <img
+                  src={link.image}
+                  alt={link.label}
+                  className="w-6 h-6 object-contain"
+                  style={{
+                    filter: "drop-shadow(1px 1px 0 rgba(0,0,0,0.2))",
+                  }}
+                />
+              </span>
+              
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 -skew-x-12 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.5 }}
               />
-            </span>
-            
-            {/* Shine effect */}
-            <motion.div
-              className="absolute inset-0 -skew-x-12 bg-white/20"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: "100%" }}
-              transition={{ duration: 0.5 }}
-            />
-            
-            {/* Bottom highlight */}
-            <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/10 rounded-full" />
-          </motion.a>
-        );
-      })}
-    </div>
+              
+              {/* Bottom highlight */}
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/10 rounded-full" />
+            </motion.a>
+          );
+        })}
+      </div>
+
+      {/* Desktop - Top right corner */}
+      <div className="hero-social-icons hidden sm:flex items-center gap-3 absolute top-6 right-6 lg:top-8 lg:right-8 z-20">
+        {socialLinks.map((link, index) => {
+          const variant = iconVariants[link.variant];
+          return (
+            <motion.a
+              key={`desktop-${link.label}`}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1.05,
+                rotate: variant.rotate,
+                y: -5,
+              }}
+              whileTap={{ scale: 0.95, y: 0 }}
+              className={`w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-b ${variant.gradient} shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 relative overflow-hidden group`}
+              aria-label={link.label}
+            >
+              <span className="relative z-10">
+                <img
+                  src={link.image}
+                  alt={link.label}
+                  className="w-7 h-7 object-contain"
+                  style={{
+                    filter: "drop-shadow(1px 1px 0 rgba(0,0,0,0.2))",
+                  }}
+                />
+              </span>
+              
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 -skew-x-12 bg-white/20"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.5 }}
+              />
+              
+              {/* Bottom highlight */}
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/10 rounded-full" />
+            </motion.a>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
