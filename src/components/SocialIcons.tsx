@@ -82,8 +82,8 @@ const SocialIcons = () => {
         })}
       </div>
 
-      {/* Desktop - Centered above logo (same as mobile) */}
-      <div className="hero-social-icons hidden sm:flex items-center justify-center gap-4 pt-6 pb-4">
+      {/* Desktop - Centered above logo (larger size) */}
+      <div className="hero-social-icons hidden sm:flex items-center justify-center gap-5 pt-6 pb-4">
         {socialLinks.map((link, index) => {
           const variant = iconVariants[link.variant];
           return (
@@ -98,14 +98,14 @@ const SocialIcons = () => {
                 y: -5,
               }}
               whileTap={{ scale: 0.95, y: 0 }}
-              className={`w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-b ${variant.gradient} shadow-[0_4px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-1 relative overflow-hidden group`}
+              className={`w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-b ${variant.gradient} shadow-[0_8px_0_0_rgba(0,0,0,0.2)] transition-all duration-200 active:shadow-none active:translate-y-2 relative overflow-hidden group`}
               aria-label={link.label}
             >
               <span className="relative z-10">
                 <img
                   src={link.image}
                   alt={link.label}
-                  className="w-6 h-6 object-contain"
+                  className="w-9 h-9 object-contain"
                   style={{
                     filter: "drop-shadow(1px 1px 0 rgba(0,0,0,0.2))",
                   }}
@@ -121,7 +121,7 @@ const SocialIcons = () => {
               />
               
               {/* Bottom highlight */}
-              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-black/10 rounded-full" />
+              <div className="absolute bottom-0 left-0 right-0 h-2 bg-black/10 rounded-full" />
             </motion.a>
           );
         })}
